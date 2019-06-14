@@ -42,7 +42,7 @@ const menu = [
     component: Layout,
     redirect: '/example/bigTable',
     meta: {
-      title: '组件示例',
+      title: '服务',
       icon: 'fa fa-th',
     },
     children: [
@@ -51,7 +51,7 @@ const menu = [
         path: 'bigTable',
         component: () => import('@/views/example/bigTable'),
         meta: {
-          title: '数据列表',
+          title: '服务信息',
           icon: 'fa fa-table',
         },
       },
@@ -60,7 +60,7 @@ const menu = [
         path: 'bigForm',
         component: () => import('@/views/example/bigForm'),
         meta: {
-          title: '表单',
+          title: '服务监控（链接）prom',
           icon: 'fa fa-edit',
         },
       },

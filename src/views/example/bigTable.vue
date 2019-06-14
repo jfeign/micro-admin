@@ -4,7 +4,6 @@
       ref="dateTable"
       :queryParams="queryParams"
       :apiUrl="apiUrl"
-      :loadCallback="loadCallback"
     >
       <div slot="conditions">
         <el-form :inline="true" :model="queryParams">

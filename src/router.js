@@ -16,9 +16,9 @@ const routes = [
     name: 'login.index',
     path: '/login',
     meta: {
-      title: '登录',
+      title: '首页',
     },
-    component: () => import('@/views/login/index'),
+    component: () => import('@/views/home/index'),
   },
   ...menu,
   {

@@ -31,6 +31,12 @@ import '@/utils/permission';
 
 // 引入filter
 import '@/utils/filter';
+import 'fullpage.js/vendors/scrolloverflow' // Optional. When using scrollOverflow:true
+// import './fullpage.scrollHorizontally.min' // Optional. When using fullpage extensions
+import VueFullPage from 'vue-fullpage.js'
+import '@/assets/css/fullpage.css'
+
+Vue.use(VueFullPage);
 
 Vue.use(ElementUI, { locale });
 
