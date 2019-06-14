@@ -13,8 +13,8 @@ Vue.use(Router);
 
 const routes = [
   {
-    name: 'login.index',
-    path: '/login',
+    name: 'home.index',
+    path: '/',
     meta: {
       title: '首页',
     },
@@ -38,31 +38,9 @@ const router = new Router({
 
 // 路由跳转前进行身份认证
 
-// 白名单，不会重定向
-const whiteList = ['/login'];
-
 router.beforeEach((to, from, next) => {
+  next()
   NProgress.start();
-  document.title = to.meta.title;
-
-  // 如果存在 token
-  if (store.getters['token'] && permission.isAuthMenu(to.name)) {
-    if (to.path === '/login') {
-      // 跳过登录
-      next({ path: '/' });
-      NProgress.done();
-    } else {
-      next();
-    }
-  } else {
-    if (whiteList.indexOf(to.path) > -1) {
-      next();
-    } else {
-      // 直接跳转到登录，也可以给出提示
-      next({ path: '/login' });
-      NProgress.done();
-    }
-  }
 });
 
 router.afterEach(() => {
