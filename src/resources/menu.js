@@ -64,87 +64,87 @@ const menu = [
           icon: 'fa fa-edit',
         },
       },
-      {
-        name: 'example.tabPage',
-        path: 'tabPage',
-        component: () => import('@/views/example/tabPage'),
-        meta: {
-          title: '带标签页面',
-          icon: 'fa fa-folder-o',
-        },
-      },
-      {
-        name: 'example.component',
-        path: 'component',
-        redirect: '/example/component/codeEditor',
-        component: EmptyContainer,
-        meta: {
-          title: '特殊组件',
-          icon: 'fa fa-table',
-        },
-        children: [
-          {
-            name: 'example.component.codeEditor',
-            path: 'codeEditor',
-            component: () => import('@/views/example/codeEditor'),
-            meta: {
-              title: '代码编辑器',
-              icon: 'fa fa-code',
-            },
-          },
-          {
-            name: 'example.component.wysiwyg',
-            path: 'wysiwygEditor',
-            component: () => import('@/views/example/wysiwygEditor'),
-            meta: {
-              title: '多功能编辑器',
-              icon: 'fa fa-edit',
-            },
-          },
-        ],
-      },
+      // {
+      //   name: 'example.tabPage',
+      //   path: 'tabPage',
+      //   component: () => import('@/views/example/tabPage'),
+      //   meta: {
+      //     title: '带标签页面',
+      //     icon: 'fa fa-folder-o',
+      //   },
+      // },
+      // {
+      //   name: 'example.component',
+      //   path: 'component',
+      //   redirect: '/example/component/codeEditor',
+      //   component: EmptyContainer,
+      //   meta: {
+      //     title: '特殊组件',
+      //     icon: 'fa fa-table',
+      //   },
+      //   children: [
+      //     {
+      //       name: 'example.component.codeEditor',
+      //       path: 'codeEditor',
+      //       component: () => import('@/views/example/codeEditor'),
+      //       meta: {
+      //         title: '代码编辑器',
+      //         icon: 'fa fa-code',
+      //       },
+      //     },
+      //     {
+      //       name: 'example.component.wysiwyg',
+      //       path: 'wysiwygEditor',
+      //       component: () => import('@/views/example/wysiwygEditor'),
+      //       meta: {
+      //         title: '多功能编辑器',
+      //         icon: 'fa fa-edit',
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
-  {
-    name: 'generator',
-    path: '/generator',
-    // hidden: true,
-    component: Layout,
-    redirect: '/generator/index',
-    meta: {
-      title: '代码生成',
-      icon: 'fa fa-file-code-o',
-    },
-    children: [
-      {
-        name: 'generator.index',
-        path: 'index',
-        component: () => import('@/views/generator/index'),
-        meta: {
-          title: '代码生成器',
-          icon: 'fa fa-file-code-o',
-        },
-      },
-      {
-        name: 'generator.sample',
-        path: 'sample',
-        component: () => import('@/views/generator/sample'),
-        meta: {
-          title: '代码生成样例',
-          icon: 'fa fa-file-o',
-        },
-      },
-      {
-        name: 'generator.test',
-        path: 'test',
-        component: () => import('@/views/generator/test'),
-        meta: {
-          title: '测试生成代码',
-          icon: 'fa fa-flask',
-        },
-      },
-    ],
-  },
+  // {
+  //   name: 'generator',
+  //   path: '/generator',
+  //   // hidden: true,
+  //   component: Layout,
+  //   redirect: '/generator/index',
+  //   meta: {
+  //     title: '代码生成',
+  //     icon: 'fa fa-file-code-o',
+  //   },
+  //   children: [
+  //     {
+  //       name: 'generator.index',
+  //       path: 'index',
+  //       component: () => import('@/views/generator/index'),
+  //       meta: {
+  //         title: '代码生成器',
+  //         icon: 'fa fa-file-code-o',
+  //       },
+  //     },
+  //     {
+  //       name: 'generator.sample',
+  //       path: 'sample',
+  //       component: () => import('@/views/generator/sample'),
+  //       meta: {
+  //         title: '代码生成样例',
+  //         icon: 'fa fa-file-o',
+  //       },
+  //     },
+  //     {
+  //       name: 'generator.test',
+  //       path: 'test',
+  //       component: () => import('@/views/generator/test'),
+  //       meta: {
+  //         title: '测试生成代码',
+  //         icon: 'fa fa-flask',
+  //       },
+  //     },
+  //   ],
+  // },
 ];
 
 export default menu;
