@@ -39,8 +39,8 @@ const router = new Router({
 // 路由跳转前进行身份认证
 
 router.beforeEach((to, from, next) => {
-  next()
   NProgress.start();
+  next()
 });
 
 router.afterEach(() => {

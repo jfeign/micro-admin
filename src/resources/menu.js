@@ -56,6 +56,24 @@ const menu = [
         },
       },
       {
+        name: 'example.tabs',
+        path: 'tabs',
+        component: () => import('@/views/example/tabs'),
+        meta: {
+          title: 'tabs',
+          icon: 'fa fa-table',
+        },
+      },
+      {
+        name: 'example.addInfo',
+        path: 'addInfo',
+        component: () => import('@/views/example/addInfo'),
+        meta: {
+          title: '新建服务',
+          icon: 'fa fa-table',
+        },
+      },
+      {
         name: 'example.bigForm',
         path: 'bigForm',
         component: () => import('@/views/example/bigForm'),
@@ -64,15 +82,15 @@ const menu = [
           icon: 'fa fa-edit',
         },
       },
-      // {
-      //   name: 'example.tabPage',
-      //   path: 'tabPage',
-      //   component: () => import('@/views/example/tabPage'),
-      //   meta: {
-      //     title: '带标签页面',
-      //     icon: 'fa fa-folder-o',
-      //   },
-      // },
+      {
+        name: 'example.tabPage',
+        path: 'tabPage',
+        component: () => import('@/views/example/tabPage'),
+        meta: {
+          title: '带标签页面',
+          icon: 'fa fa-folder-o',
+        },
+      },
       // {
       //   name: 'example.component',
       //   path: 'component',

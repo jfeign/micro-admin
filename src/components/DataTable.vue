@@ -28,19 +28,6 @@
         <slot name="columns"></slot>
       </el-table>
     </div>
-
-    <div class="pagination">
-      <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPageData"
-        :page-sizes="pageSizes"
-        :page-size="pageSizeData"
-        layout="total, prev, pager, next, jumper, sizes"
-        :total="total"
-      >
-      </el-pagination>
-    </div>
   </div>
 </template>
 <script>
@@ -159,16 +146,8 @@ export default {
         url: this.apiUrl,
         method: 'post',
         data: queryParams,
-      })
-        .then(d => {
-          this.listData =
-            d.list &&
-            d.list.map(function(item, index) {
-              // 增加序号
-              item.pageIndex = (queryParams.pageNum - 1) * queryParams.pageSize + index + 1;
-              return item;
-            });
-          this.total = d.total;
+      }).then(d => {
+          this.listData = d
           return d;
         })
         .then(d => {

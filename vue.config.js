@@ -30,12 +30,12 @@ module.exports = {
       // },
 
       '/api': {
-        target: 'http://10.10.22.23:20102/',
-        changeOrigin: true,
-        autoRewrite: true,
-        pathRewrite: {
-          '^/api/': '/',
-        },
+        target: 'http://10.20.69.167:8080/',
+        // changeOrigin: true,
+        // autoRewrite: true,
+        // pathRewrite: {
+        //   '^/api/': '/',
+        // },
       },
     },
   },

@@ -7,40 +7,30 @@
     >
       <div slot="conditions">
         <el-form :inline="true" :model="queryParams">
-          <el-form-item label="关键字">
-            <el-input
-              v-model="queryParams.keyword"
-              placeholder="请输入关键字"
-              size="small"
-            ></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" size="small" @click="onQuery">查询</el-button>
-          </el-form-item>
           <el-form-item>
             <!--注意这里判断action的方式-->
-            <el-button type="success" size="small" v-show="isAuthAction(action.exampleAddUser)"
-              >新建用户</el-button
+            <el-button @click="$router.push('/example/addInfo')" type="success" size="small"
+              >新建服务</el-button
             >
           </el-form-item>
         </el-form>
       </div>
       <template slot="columns">
-        <el-table-column prop="id" label="ID" width="120" align="center" sortable="custom">
-        </el-table-column>
-        <el-table-column prop="title" label="地址" align="left"></el-table-column>
-        <el-table-column prop="status" label="状态" width="120" align="center">
-          <template slot-scope="scope">
-            <el-tag :type="scope.row.status ? 'success' : 'danger'">
-              {{ scope.row.status ? '启用' : '停用' }}
-            </el-tag>
+        <el-table-column  label="ID" align="center">
+          <template scope="{row}">
+            <span @click="toDetail(row.id)" :style="{color: 'rgb(0, 193, 222)', cursor: 'pointer'}">{{row.id}}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="date" label="日期" align="center">
-          <template slot-scope="scope">
-            <i class="el-icon-time"></i> {{ scope.row.date | datetime }}
+        <el-table-column prop="path" label="路径" align="left"></el-table-column>
+        <el-table-column prop="url" label="URL" align="center"></el-table-column>
+        <el-table-column prop="retryable" label="是否重试" align="center"></el-table-column>
+        <el-table-column label="是否重写前缀" align="center">
+          <template scope="{row}">
+            {{row.stripPrefix === true ? '是' : '否'}}
           </template>
         </el-table-column>
+       <el-table-column prop="apiName" label="apiName" align="center"></el-table-column>
+
       </template>
     </data-table>
   </div>
@@ -60,7 +50,7 @@ export default {
   data() {
     return {
       action,
-      apiUrl: api.example_bigTable,
+      apiUrl: '/listRoute',
       queryParams: {
         keyword: '',
       },
@@ -70,6 +60,10 @@ export default {
   methods: {
     onQuery() {
       this.$refs.dateTable.$emit(event.REFRESH_ALL_DATA);
+    },
+    toDetail(id) {
+      console.log(id)
+      this.$router.push({path: '/example/tabs', query: {id}})
     },
     loadCallback(data, queryParams) {
       this.$notify.info({

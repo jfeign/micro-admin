@@ -10,9 +10,6 @@ export default {
   // 如果不需要角色和权限功能，可以设置为 false
   needPermission: false,
 
-  // 是否启用 Mock
-  mockEnabled: true,
-
   // 每页默认数据条数
   pageSize: 20,
 
