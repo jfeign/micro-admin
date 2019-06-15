@@ -3,7 +3,14 @@
     <el-row type="flex"  justify="center" >
       <el-col :span="14">
         <el-form-item label="ID">
-          <el-input v-model="ruleForm.id" placeholder="ID"></el-input>
+          <el-input disabled v-model="ruleForm.id" placeholder="ID"></el-input>
+        </el-form-item>
+      </el-col>
+    </el-row>
+    <el-row type="flex"  justify="center">
+      <el-col :span="14">
+        <el-form-item label="服务ID">
+          <el-input disabled v-model="ruleForm.serviceId" placeholder="服务ID"></el-input>
         </el-form-item>
       </el-col>
     </el-row>
@@ -76,7 +83,8 @@
               retryable: '',
               stripPrefix: '',
               enabled: '',
-              apiName: ''
+              apiName: '',
+              serviceId: ''
             },
           }
         },
@@ -85,7 +93,7 @@
             url: '/getRoute',
             method: 'post',
             data: {id: this.$route.query.id}
-          }).then(data => {
+          }).then(({data}) => {
             this.ruleForm = data
           })
         },
@@ -95,6 +103,15 @@
               url: '/updateRoute',
               method: 'post',
               data: this.ruleForm
+            }).then(({success, message}) => {
+              this.$notify({
+                type: success ? 'success' : 'error',
+                message,
+                duration: 2000
+              })
+              if (success) {
+                this.$router.go(-1)
+              }
             })
           }
         }

@@ -147,7 +147,7 @@ export default {
         method: 'post',
         data: queryParams,
       }).then(d => {
-          this.listData = d
+          this.listData = d.data
           return d;
         })
         .then(d => {

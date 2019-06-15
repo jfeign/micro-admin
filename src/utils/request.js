@@ -48,7 +48,7 @@ request.interceptors.response.use(
       success = false
     }
     
-    return response.data.data;
+    return {success, ...response.data};
   },
   error => {
     console.error(error);

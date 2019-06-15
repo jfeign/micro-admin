@@ -23,7 +23,12 @@
         </el-table-column>
         <el-table-column prop="path" label="路径" align="left"></el-table-column>
         <el-table-column prop="url" label="URL" align="center"></el-table-column>
-        <el-table-column prop="retryable" label="是否重试" align="center"></el-table-column>
+        <el-table-column prop="serviceId" label="服务ID" align="center"></el-table-column>
+        <el-table-column label="是否重试" align="center">
+          <template scope="{row}">
+            {{row.retryable === true ? '是' : '否'}}
+          </template>
+        </el-table-column>
         <el-table-column label="是否重写前缀" align="center">
           <template scope="{row}">
             {{row.stripPrefix === true ? '是' : '否'}}

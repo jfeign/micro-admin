@@ -6,9 +6,6 @@
     <el-tab-pane label="过滤器设置">
       <filterSet></filterSet>
     </el-tab-pane>
-    <el-tab-pane label="负载策略">
-      <load></load>
-    </el-tab-pane>
   </el-tabs>
 </template>
 <script>

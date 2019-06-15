@@ -3,7 +3,7 @@
     <div class="toggle-sidebar" :class="{ collapse: isCollapse }" @click.prevent="toggleSideBar">
       <i class="fa fa-bars"></i>
     </div>
-    <breadcrumb></breadcrumb>
+    <!-- <breadcrumb></breadcrumb> -->
   </el-menu>
 </template>
 
