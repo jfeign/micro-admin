@@ -37,9 +37,10 @@
        <el-table-column prop="apiName" label="apiName" align="center">
        </el-table-column>
       <el-table-column label="跳转" align="center">
-        <template>
-          <a href="https//www.baidu.com"></a>
-        </template>
+        
+        <template scope="{row}">
+            <a v-if="row.hotspotMap" target="_blank" :href="row.hotspotMap">用户分布图</a>
+          </template>
        </el-table-column>
       </template>
     </data-table>
