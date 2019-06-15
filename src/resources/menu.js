@@ -58,6 +58,7 @@ const menu = [
       {
         name: 'example.tabs',
         path: 'tabs',
+        hidden: true,
         component: () => import('@/views/example/tabs'),
         meta: {
           title: 'tabs',
@@ -67,6 +68,7 @@ const menu = [
       {
         name: 'example.addInfo',
         path: 'addInfo',
+        hidden: true,
         component: () => import('@/views/example/addInfo'),
         meta: {
           title: '新建服务',
@@ -80,15 +82,6 @@ const menu = [
         meta: {
           title: '服务监控（链接）prom',
           icon: 'fa fa-edit',
-        },
-      },
-      {
-        name: 'example.tabPage',
-        path: 'tabPage',
-        component: () => import('@/views/example/tabPage'),
-        meta: {
-          title: '带标签页面',
-          icon: 'fa fa-folder-o',
         },
       },
       // {

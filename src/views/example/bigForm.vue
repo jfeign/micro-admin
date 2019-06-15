@@ -1,101 +1,85 @@
 <template>
   <div>
-    <el-form ref="form" :model="form" :rules="formRules" label-width="120px">
-      <el-form-item label="文本框" prop="title">
-        <el-input v-model="form.title" placeholder="请填写"></el-input>
-      </el-form-item>
-      <el-form-item label="下拉选择" prop="status">
-        <el-select v-model="form.status" placeholder="请选择状态">
-          <el-option label="启用" value="1"></el-option>
-          <el-option label="停用" value="0"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="日期范围">
-        <el-date-picker
-          v-model="form.dateRange"
-          type="daterange"
-          range-separator="至"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-        >
-        </el-date-picker>
-      </el-form-item>
-      <el-form-item label="开关"> <el-switch v-model="form.switch"></el-switch> </el-form-item>
-      <el-form-item label="多选框">
-        <el-checkbox-group v-model="form.type">
-          <el-checkbox label="选项1" name="type"></el-checkbox>
-          <el-checkbox label="选项2" name="type"></el-checkbox>
-          <el-checkbox label="选项3" name="type"></el-checkbox>
-        </el-checkbox-group>
-      </el-form-item>
-      <el-form-item label="单选框">
-        <el-radio-group v-model="form.resource">
-          <el-radio label="选项1"></el-radio>
-          <el-radio label="选项2"></el-radio>
-          <el-radio label="选项3"></el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="多行文本">
-        <el-input type="textarea" v-model="form.desc"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">提交</el-button>
-        <el-button @click="onCancel">取消</el-button>
-      </el-form-item>
-      <pre class="code">
-        表单值：<br>
-        {{ JSON.stringify(form) }}
-      </pre>
-    </el-form>
+    <data-table
+      ref="dateTable"
+      :queryParams="queryParams"
+      :apiUrl="apiUrl"
+    >
+      <div slot="conditions">
+        <el-form :inline="true" :model="queryParams">
+          <el-form-item>
+            <!--注意这里判断action的方式-->
+            <el-button @click="$router.push('/example/addInfo')" type="success" size="small"
+              >新建服务</el-button
+            >
+          </el-form-item>
+        </el-form>
+      </div>
+      <template slot="columns">
+        <el-table-column  label="ID" align="center">
+          <template scope="{row}">
+            <span @click="toDetail(row.id)" :style="{color: 'rgb(0, 193, 222)', cursor: 'pointer'}">{{row.id}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="path" label="路径" align="left"></el-table-column>
+        <el-table-column prop="url" label="URL" align="center"></el-table-column>
+        <el-table-column prop="serviceId" label="服务ID" align="center"></el-table-column>
+        <el-table-column label="是否重试" align="center">
+          <template scope="{row}">
+            {{row.retryable === true ? '是' : '否'}}
+          </template>
+        </el-table-column>
+        <el-table-column label="是否重写前缀" align="center">
+          <template scope="{row}">
+            {{row.stripPrefix === true ? '是' : '否'}}
+          </template>
+        </el-table-column>
+       <el-table-column prop="apiName" label="apiName" align="center"></el-table-column>
+        <el-table-column label="跳转" align="center">
+        <template>
+          <a href="https//www.baidu.com"></a>
+        </template>
+       </el-table-column>
+      </template>
+    </data-table>
   </div>
 </template>
 
 <script>
-import validate from '@/utils/validate';
+import api from '@/resources/api';
+import action from '@/resources/action';
+import DataTable from '@/components/DataTable';
+import event from '@/utils/event';
 
 export default {
-  name: 'bigForm',
-
+  name: 'bigTable',
+  components: {
+    DataTable,
+  },
   data() {
     return {
-      form: {
-        title: '',
-        status: '',
-        dateRange: '',
-        switch: false,
-        type: [],
-        resource: '',
-        desc: '',
-      },
-      formRules: {
-        title: [validate.required()],
-        status: [validate.required()],
+      action,
+      apiUrl: '/listRoute',
+      queryParams: {
+        keyword: '',
       },
     };
   },
+  mounted() {},
   methods: {
-    onSubmit() {
-      this.$refs.form.validate(valid => {
-        if (valid) {
-          this.$message.success('提交成功');
-        }
-        return false;
-      });
+    onQuery() {
+      this.$refs.dateTable.$emit(event.REFRESH_ALL_DATA);
     },
-    onCancel() {
-      this.$message.warning('取消');
+    toDetail(id) {
+      console.log(id)
+      this.$router.push({path: '/example/tabs', query: {id}})
+    },
+    loadCallback(data, queryParams) {
+      this.$notify.info({
+        title: '查询参数',
+        message: JSON.stringify(queryParams || {}),
+      });
     },
   },
 };
 </script>
-
-<style scoped>
-.code {
-  color: #409eff;
-  margin-left: 120px;
-  font-size: 14px;
-  white-space: normal;
-  word-wrap: break-word;
-  line-height: 2;
-}
-</style>

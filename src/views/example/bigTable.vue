@@ -34,8 +34,13 @@
             {{row.stripPrefix === true ? '是' : '否'}}
           </template>
         </el-table-column>
-       <el-table-column prop="apiName" label="apiName" align="center"></el-table-column>
-
+       <el-table-column prop="apiName" label="apiName" align="center">
+       </el-table-column>
+      <el-table-column label="跳转" align="center">
+        <template>
+          <a href="https//www.baidu.com"></a>
+        </template>
+       </el-table-column>
       </template>
     </data-table>
   </div>

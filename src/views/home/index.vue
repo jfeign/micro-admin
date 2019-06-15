@@ -1,9 +1,9 @@
 <template>
     <div id="app">
         <ul id="menu">
-            <li data-menuanchor="page1" class="active"><a href="#page1">Section 111</a></li>
-            <li data-menuanchor="page2"><a href="#page2">Section 2</a></li>
-            <li data-menuanchor="page3"><a href="#page3">Section 3</a></li>
+            <li data-menuanchor="page1" class="active"><a href="#page1">分析</a></li>
+            <li data-menuanchor="page2"><a href="#page2">保护</a></li>
+            <li data-menuanchor="page3"><a href="#page3">监控</a></li>
         </ul>
         <ul class="actions">
             <li>
@@ -13,20 +13,13 @@
 
         <full-page :options="options" id="fullpage">
             <div class="section page1-bg">
+              <h3>实时用户分析</h3>
             </div>
-            <div class="section">
-                <div class="slide">
-                    <h3>Slide 2.1</h3>
-                </div>
-                <div class="slide">
-                    <h3>Slide 2.2</h3>
-                </div>
-                <div class="slide">
-                    <h3>Slide 2.3</h3>
-                </div>
+            <div class="section page2-bg">
+                <h3>全面的安全防护</h3>
             </div>
-            <div class="section">
-                <h3>Section 3</h3>
+            <div class="section page3-bg">
+                <h3>服务的全面监控</h3>
             </div>
         </full-page>
     </div>
@@ -78,13 +71,19 @@
         display: inline-block;
         margin: 0 10px;
     }
-
-    a {
-        color: #42b983;
-    }
     .page1-bg {
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url(./imgs/page1.png)
+      background-image: url(./imgs/page1.jpg)
+    }
+    .page2-bg {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(./imgs/page2.jpg)
+    }
+    .page3-bg {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(./imgs/page3.jpg)
     }
 </style>

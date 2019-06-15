@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="ruleForm" label-width="80px">
+  <el-form :model="ruleForm" label-width="180px">
     <el-row type="flex"  justify="center" >
       <el-col :span="14">
         <el-form-item label="ID">
@@ -66,6 +66,36 @@
       </el-col>
     </el-row>
     <el-row type="flex"  justify="center">
+      <el-col :span="14">
+        <el-form-item label="GEO地理位置信息">
+          <el-checkbox v-model="ruleForm.is_geo"></el-checkbox>
+        </el-form-item>
+      </el-col>
+    </el-row>
+    <el-row type="flex"  justify="center">
+      <el-col :span="14">
+        <el-form-item label="服务监控">
+          <el-checkbox v-model="ruleForm.is_monitor"></el-checkbox>
+        </el-form-item>
+      </el-col>
+    </el-row>
+    <el-row type="flex"  justify="center">
+      <el-col :span="14">
+        <el-form-item label="限流">
+          <el-checkbox v-model="ruleForm.is_limit"></el-checkbox>
+        </el-form-item>
+      </el-col>
+    </el-row>
+    <el-row type="flex"  justify="center">
+      <el-col :span="14">
+        <el-form-item label="限流频次">
+          <el-input v-model="ruleForm.limitTimes">
+            <span slot="suffix">次</span>
+          </el-input>
+        </el-form-item>
+      </el-col>
+    </el-row>
+    <el-row type="flex"  justify="center">
       <el-button type="primary" @click="saveInfo">保 存</el-button>
     </el-row>
   </el-form>
@@ -83,7 +113,11 @@
               stripPrefix: true,
               enable: true,
               apiName: '',
-              serviceId: ''
+              serviceId: '',
+              isGeo: '',
+              isMonitor: '',
+              isLimit: '',
+              limitTimes: ''
             },
           }
         },
