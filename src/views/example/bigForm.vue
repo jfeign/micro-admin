@@ -34,11 +34,13 @@
             {{row.stripPrefix === true ? '是' : '否'}}
           </template>
         </el-table-column>
-       <el-table-column prop="apiName" label="apiName" align="center"></el-table-column>
-        <el-table-column label="跳转" align="center">
-        <template>
-          <a href="https//www.baidu.com"></a>
-        </template>
+       <el-table-column prop="apiName" label="apiName" align="center">
+       </el-table-column>
+      <el-table-column label="跳转" align="center">
+        
+        <template scope="{row}">
+            <a v-if="row.hotspotMap" target="_blank" href="http://10.20.69.167:3000">监控</a>
+          </template>
        </el-table-column>
       </template>
     </data-table>

@@ -13,13 +13,13 @@
 
         <full-page :options="options" id="fullpage">
             <div class="section page1-bg">
-              <h3>实时用户分析</h3>
+              <h3>服务的全面监控</h3>
             </div>
             <div class="section page2-bg">
                 <h3>全面的安全防护</h3>
             </div>
             <div class="section page3-bg">
-                <h3>服务的全面监控</h3>
+                <h3>实时用户分析</h3>
             </div>
         </full-page>
     </div>
