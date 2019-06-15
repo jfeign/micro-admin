@@ -114,9 +114,9 @@
               enable: true,
               apiName: '',
               serviceId: '',
-              isGeo: '',
-              isMonitor: '',
-              isLimit: '',
+              geo: '',
+              monitor: '',
+              limit: '',
               limitTimes: ''
             },
           }
