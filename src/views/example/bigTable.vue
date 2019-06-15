@@ -12,6 +12,9 @@
             <el-button @click="$router.push('/example/addInfo')" type="success" size="small"
               >新建服务</el-button
             >
+            <el-button @click="refreshRoute" type="success" size="small"
+              >刷新服务</el-button
+            >
           </el-form-item>
         </el-form>
       </div>
@@ -52,6 +55,7 @@ import api from '@/resources/api';
 import action from '@/resources/action';
 import DataTable from '@/components/DataTable';
 import event from '@/utils/event';
+import request from '@/utils/request';
 
 export default {
   name: 'bigTable',
@@ -69,6 +73,18 @@ export default {
   },
   mounted() {},
   methods: {
+    refreshRoute() {
+      request({
+        url: '/refreshRoute',
+        method: 'post'
+      }).then(({success}) => {
+        this.$notify({
+          type: success ? 'success' : 'error',
+          duration: 2000,
+          message: success ? '刷新成功' : '刷新失败',
+        })
+      })
+    },
     onQuery() {
       this.$refs.dateTable.$emit(event.REFRESH_ALL_DATA);
     },
