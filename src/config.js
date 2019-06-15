@@ -4,7 +4,7 @@
 
 export default {
   // 系统名称
-  systemName: 'MICRO-PROTECTOR',
+  systemName: 'JARVIS',
 
   // 是否包含角色和权限
   // 如果不需要角色和权限功能，可以设置为 false

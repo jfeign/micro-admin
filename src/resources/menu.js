@@ -80,7 +80,7 @@ const menu = [
         path: 'bigForm',
         component: () => import('@/views/example/bigForm'),
         meta: {
-          title: '服务监控（链接）prom',
+          title: '服务监控prom',
           icon: 'fa fa-edit',
         },
       },
