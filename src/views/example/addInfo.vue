@@ -68,21 +68,21 @@
     <el-row type="flex"  justify="center">
       <el-col :span="14">
         <el-form-item label="GEO地理位置信息">
-          <el-checkbox v-model="ruleForm.is_geo"></el-checkbox>
+          <el-checkbox v-model="ruleForm.geo"></el-checkbox>
         </el-form-item>
       </el-col>
     </el-row>
     <el-row type="flex"  justify="center">
       <el-col :span="14">
         <el-form-item label="服务监控">
-          <el-checkbox v-model="ruleForm.is_monitor"></el-checkbox>
+          <el-checkbox v-model="ruleForm.monitor"></el-checkbox>
         </el-form-item>
       </el-col>
     </el-row>
     <el-row type="flex"  justify="center">
       <el-col :span="14">
         <el-form-item label="限流">
-          <el-checkbox v-model="ruleForm.is_limit"></el-checkbox>
+          <el-checkbox v-model="ruleForm.limits"></el-checkbox>
         </el-form-item>
       </el-col>
     </el-row>
@@ -116,7 +116,7 @@
               serviceId: '',
               geo: '',
               monitor: '',
-              limit: '',
+              limits: '',
               limitTimes: ''
             },
           }

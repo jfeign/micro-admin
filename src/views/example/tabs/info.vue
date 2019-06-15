@@ -82,7 +82,7 @@
     <el-row type="flex"  justify="center">
       <el-col :span="14">
         <el-form-item label="限流">
-          <el-checkbox v-model="ruleForm.limit"></el-checkbox>
+          <el-checkbox v-model="ruleForm.limits"></el-checkbox>
         </el-form-item>
       </el-col>
     </el-row>
